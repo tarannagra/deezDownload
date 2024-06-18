@@ -1,6 +1,5 @@
-"""
-main.py - the main file for deezDownload to function
-          and render the application to the user. 
+/*
+main.tcss - styles for the TUI
 
 Copyright (c) Taran Nagra 2024
 
@@ -21,25 +20,29 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
-"""
+*/
 
-from lib.dzr import DownloadScreen
+Button {
+    margin: 1 5;
+}
 
-from textual.app import App
+Label {
+    margin: 1 5;
+}
 
-class deezDownload(App[str]):
-    BINDINGS = [
-        ("q", "quit", "Quit")
-    ]
-    CSS_PATH = "styles/main.tcss"
-    TITLE = "deezDownload 2.0 | Taran Nagra"
+.header {
+    margin: 1 0 0 2;
+    text-style: bold;
+}
 
-    def on_mount(self) -> None:
-        self.install_screen(DownloadScreen(), "download")
-        self.app.push_screen(DownloadScreen())
+ProgressBar {
+    padding-left: 3;
+}
 
+.status-container {
+    margin-bottom: 15;
+}
 
-
-if __name__ == '__main__':
-    app = deezDownload()
-    app.run()
+.button-container {
+    margin-bottom: 0;
+}
